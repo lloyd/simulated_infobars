@@ -15,6 +15,7 @@
     "persistent": false
   },
   "web_accessible_resources": [
-    "infobar_content.html"
+    "infobar_content.html",
+    "infobar_content_script.js"
   ]
 }
