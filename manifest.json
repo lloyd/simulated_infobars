@@ -1,7 +1,7 @@
 {
   "name": "Simulated Infobars",
   "version": "1.0",
-  "manifest_version": 1,
+  "manifest_version": 2,
   "description": "Hey chrome dudes, why you lagging on experimental.infobars?",
   "browser_action": {
     "default_icon": "icon.png"
@@ -9,5 +9,12 @@
   "permissions": [
     "http://*/",
     "https://*/"
+  ],
+  "background": {
+    "scripts": ["infobar.js"],
+    "persistent": false
+  },
+  "web_accessible_resources": [
+    "infobar_content.html"
   ]
 }
