@@ -17,4 +17,10 @@ chrome.extension.onMessage.addListener(function (request, sender, sendResponse) 
   setTimeout(function() {
     iframe.style.height = "40px";
   }, 0);
+  window.addEventListener('message', function(message) {
+    // XXX: make me better?
+    alert(iframe.src + " - " + message.origin);
+    if (iframe.src.substr(message.origin) !== 0) return;
+    alert("you did it");
+  });
 });

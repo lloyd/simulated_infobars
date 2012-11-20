@@ -11,10 +11,11 @@
     "https://*/"
   ],
   "background": {
-    "scripts": ["guts/infobar.js", "background.js"],
+    "scripts": ["guts/infobar_extension_api.js", "background.js"],
     "persistent": false
   },
   "web_accessible_resources": [
-    "my_infobar.html"
+    "my_infobar.html",
+    "my_infobar.js"
   ]
 }
