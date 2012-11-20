@@ -1,0 +1,13 @@
+{
+  "name": "Simulated Infobars",
+  "version": "1.0",
+  "manifest_version": 1,
+  "description": "Hey chrome dudes, why you lagging on experimental.infobars?",
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "permissions": [
+    "http://*/",
+    "https://*/"
+  ]
+}
