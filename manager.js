@@ -17,6 +17,7 @@ var InfobarManager = (function() {
       if (sender.tab && request &&
           request.action == 'infobar_complete')
       {
+        console.log("infobar completes:", request.msg); 
         // let's tear down the infobar
         var record = running[sender.tab.id];
         delete running[sender.tab.id];
