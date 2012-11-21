@@ -1,21 +1,24 @@
 {
-  "name": "Simulated Infobars",
+  "name": "Simulated Infobars Example Extension",
   "version": "1.0",
   "manifest_version": 2,
   "description": "Hey chrome dudes, why you lagging on experimental.infobars?",
   "browser_action": {
-    "default_icon": "icon.png"
+    "default_icon": "example_extension/icon.png",
+    "default_popup": "example_extension/browser_action.html"
   },
   "permissions": [
     "http://*/",
     "https://*/"
   ],
-  "background": {
-    "scripts": ["guts/infobar_extension_api.js", "background.js"],
-    "persistent": false
-  },
   "web_accessible_resources": [
-    "my_infobar.html",
-    "my_infobar.js"
-  ]
+    "example_extension/basic_infobar.html",
+    "example_extension/interactive_infobar.html"
+  ],
+  "background": {
+    "scripts": [
+      "infobar/manager.js",
+      "example_extension/pin_code_checker.js"
+    ]
+  }
 }
