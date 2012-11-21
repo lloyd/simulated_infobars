@@ -14,14 +14,21 @@ chrome.extension.onMessage.addListener(function (request, sender, sendResponse) 
   iframe.style.webkitTransition = "height 0.35s";
   iframe.style.zIndex = "1000000000000";
   document.body.appendChild(iframe);
+  document.body.style.webkitTransition = "margin-top 0.35s";
   setTimeout(function() {
+    document.body.style.marginTop = "40px";
     iframe.style.height = "40px";
   }, 0);
   window.addEventListener('message', function(message) {
-    // XXX: make me better?
+    // defend against messages we don't care about
     if (iframe.src.indexOf(message.origin) !== 0) return;
-    // XXX: transition!
-    document.body.removeChild(iframe);
+    // transition out!
+    document.body.style.marginTop = "0px";
+    iframe.style.height = "0px";
+    // after transition is complete, remove any remnants from the dom
+    setTimeout(function() {
+      document.body.removeChild(iframe);
+    }, 400);
     sendResponse(message.data);
   });
   // asynchronous reponse, must return true
