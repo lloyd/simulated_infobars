@@ -1,10 +1,16 @@
 document.querySelector('input').onkeyup = function(e) {
   if (e.keyCode == 13) {
     chrome.extension.sendMessage(
-      { code: e.target.value },
+      { action: "check_pin", code: e.target.value },
       function(response) {
-        if (response) return window.parent.postMessage("she got it", "*");
-        document.querySelector("#wrong").style.display = "inline";
+        if (response) {
+          chrome.extension.sendMessage({
+            action: 'infobar_complete',
+            msg: "she got it"
+          });
+        } else {
+          document.querySelector("#wrong").style.display = "inline";
+        }
       });
   }
 };

@@ -1,7 +1,8 @@
 chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
-    console.log(sender.tab ?
-                "from a content script:" + sender.tab.url :
-                "from the extension");
-    sendResponse(request.code === '1234');
+    // only respond if this is a 'check_pin' message from code rendered
+    // by our extension
+    if (request && request.action === 'check_pin') {
+      sendResponse(request.code === '1234');
+    }
   });

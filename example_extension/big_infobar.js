@@ -1,3 +1,6 @@
 document.querySelector('button').onclick = function() { 
-  window.parent.postMessage("ohai, I'm done", "*");
+  chrome.extension.sendMessage({
+    action: 'complete_infobar',
+    msg: "ohai, I'm done"
+  });
 };
