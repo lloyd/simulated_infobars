@@ -7,7 +7,7 @@ var InfobarManager = (function() {
       function runWithTab(tabId) {
         chrome.tabs.executeScript(
           tabId,
-          { file: "infobar/lib/run_infobar.js" }, function() {
+          { file: "infobar/lib/start_infobar.js" }, function() {
           // once script is running, let's message it the name of the
             // file it is to use as the infobar.
             chrome.tabs.sendMessage(
