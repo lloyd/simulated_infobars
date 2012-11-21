@@ -3,8 +3,8 @@ document.querySelector('input').onkeyup = function(e) {
     chrome.extension.sendMessage(
       { code: e.target.value },
       function(response) {
-        console.log(response);
+        if (response) return window.parent.postMessage("she got it", "*");
+        document.querySelector("#wrong").style.display = "inline";
       });
   }
 };
-
