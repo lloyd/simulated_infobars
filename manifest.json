@@ -13,7 +13,8 @@
   ],
   "web_accessible_resources": [
     "example_extension/basic_infobar.html",
-    "example_extension/interactive_infobar.html"
+    "example_extension/interactive_infobar.html",
+    "example_extension/big_infobar.html"
   ],
   "background": {
     "scripts": [
