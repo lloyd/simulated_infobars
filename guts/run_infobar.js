@@ -19,8 +19,11 @@ chrome.extension.onMessage.addListener(function (request, sender, sendResponse) 
   }, 0);
   window.addEventListener('message', function(message) {
     // XXX: make me better?
-    alert(iframe.src + " - " + message.origin);
-    if (iframe.src.substr(message.origin) !== 0) return;
-    alert("you did it");
+    if (iframe.src.indexOf(message.origin) !== 0) return;
+    // XXX: transition!
+    document.body.removeChild(iframe);
+    sendResponse(message.data);
   });
+  // asynchronous reponse, must return true
+  return true;
 });

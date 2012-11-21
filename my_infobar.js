@@ -1,1 +1,3 @@
-window.parent.postMessage("all done", "*");
+document.querySelector('button').onclick = function() { 
+  window.parent.postMessage("all done", "*");
+};
